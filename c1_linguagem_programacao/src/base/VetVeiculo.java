@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class VetVeiculo {
 	//a. Um ArrayList de Veiculo
-	ArrayList<Veiculo> arrVeiculos = new ArrayList<>();
+	static ArrayList<Veiculo> arrVeiculos = new ArrayList<>();
 	
 	//a. Um construtor vazio
 	public VetVeiculo() {
@@ -15,6 +15,7 @@ public class VetVeiculo {
 		return arrVeiculos.size();
 	}
 	
+
 	/*getPos (retorna um produto que está na posição que será passada como parâmetro. Se a posição for inválida, deve retornar null)*/
 	public Veiculo getPos(int pos) {
 		if(pos >= 0 && pos < arrVeiculos.size()) {
@@ -50,6 +51,7 @@ public class VetVeiculo {
 	/*Remoção de um Veiculo no vetor (remove o Veiculo do vetor e retorna true. Se o Veiculo não existir no vetor, retorna false).*/
     public boolean removerVeiculo(String placa) {
         int pos = pesquisaVeiculo(placa);
+        
         if (pos != -1) {
             arrVeiculos.remove(pos);
             return true;
@@ -57,4 +59,14 @@ public class VetVeiculo {
             return false;
         }
     }
+	public void listarVeiculos() {
+        if (arrVeiculos.isEmpty()) {
+            System.out.println("Nenhum veículo encontrado.");
+        } else {
+            for (Veiculo veiculo : arrVeiculos) {
+                System.out.println("Placa: "+ veiculo.getPlaca()+ ", Modelo: " + veiculo.getModelo());
+            }
+        }
+    }
+
 }
